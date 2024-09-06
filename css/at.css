@@ -1,0 +1,179 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Definição básica do corpo */
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #27496d, #1b2a49); /* Gradiente frio */
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out; /* Animação de Fade-in */
+}
+
+/* Animação de fade-in ao carregar */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animação de chuva */
+.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.rain div {
+    position: absolute;
+    bottom: 100%;
+    width: 2px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: fall 1s linear infinite;
+    border-radius: 50%;
+}
+
+/* Criando a queda de chuva */
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Gerando múltiplas gotas de chuva */
+.rain div:nth-child(1) { left: 10%; animation-duration: 0.8s; animation-delay: 0s; }
+.rain div:nth-child(2) { left: 20%; animation-duration: 1s; animation-delay: 0.2s; }
+.rain div:nth-child(3) { left: 30%; animation-duration: 0.6s; animation-delay: 0.4s; }
+.rain div:nth-child(4) { left: 40%; animation-duration: 0.7s; animation-delay: 0.3s; }
+.rain div:nth-child(5) { left: 50%; animation-duration: 1.2s; animation-delay: 0.1s; }
+.rain div:nth-child(6) { left: 60%; animation-duration: 0.9s; animation-delay: 0.6s; }
+.rain div:nth-child(7) { left: 70%; animation-duration: 0.5s; animation-delay: 0.5s; }
+.rain div:nth-child(8) { left: 80%; animation-duration: 0.8s; animation-delay: 0.2s; }
+.rain div:nth-child(9) { left: 90%; animation-duration: 1s; animation-delay: 0.4s; }
+.rain div:nth-child(10) { left: 95%; animation-duration: 0.9s; animation-delay: 0.3s; }
+
+/* Container principal */
+.weather-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    text-align: center;
+    width: 350px;
+    max-width: 90%;
+    z-index: 1; /* Sobre a chuva */
+    opacity: 0;
+    animation: fadeInContainer 2s ease-in-out forwards; /* Fade-in no container */
+}
+
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.weather-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600; /* Negrito */
+}
+
+/* Caixa de pesquisa */
+.search-box {
+    margin-bottom: 20px;
+}
+
+#cityInput {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+#cityInput:focus {
+    border-color: #1b2a49; /* Cor de borda ao focar */
+}
+
+#searchButton {
+    padding: 12px 30px;
+    background-color: #1b2a49;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s; /* Transição suave de cor e tamanho */
+}
+
+/* Animação no botão ao passar o mouse */
+#searchButton:hover {
+    background-color: #162039; /* Cor ao passar o mouse */
+    transform: scale(1.1); /* Efeito de crescimento */
+}
+
+/* Resultados do clima */
+.weather-result {
+    background-color: #f0f0f0; /* Fundo cinza claro */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto de resultado */
+.weather-result h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 400; /* Peso da fonte */
+}
+
+.weather-result h3 {
+    font-size: 30px;
+    color: #27496d;
+    margin-bottom: 10px;
+    font-weight: 600; /* Negrito */
+}
+
+#weatherDescription {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+#humidity {
+    font-size: 18px;
+    color: #777;
+}
+
+#weatherIcon img {
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+}
