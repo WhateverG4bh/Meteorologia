@@ -25,46 +25,18 @@ body {
     }
 }
 
-/* Animação de chuva */
-.rain {
+/* Fundo com animação */
+.background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 2s ease-in-out;
+    z-index: -1;
 }
-
-.rain div {
-    position: absolute;
-    bottom: 100%;
-    width: 2px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.5);
-    animation: fall 1s linear infinite;
-    border-radius: 50%;
-}
-
-/* Criando a queda de chuva */
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-    }
-}
-
-/* Gerando múltiplas gotas de chuva */
-.rain div:nth-child(1) { left: 10%; animation-duration: 0.8s; animation-delay: 0s; }
-.rain div:nth-child(2) { left: 20%; animation-duration: 1s; animation-delay: 0.2s; }
-.rain div:nth-child(3) { left: 30%; animation-duration: 0.6s; animation-delay: 0.4s; }
-.rain div:nth-child(4) { left: 40%; animation-duration: 0.7s; animation-delay: 0.3s; }
-.rain div:nth-child(5) { left: 50%; animation-duration: 1.2s; animation-delay: 0.1s; }
-.rain div:nth-child(6) { left: 60%; animation-duration: 0.9s; animation-delay: 0.6s; }
-.rain div:nth-child(7) { left: 70%; animation-duration: 0.5s; animation-delay: 0.5s; }
-.rain div:nth-child(8) { left: 80%; animation-duration: 0.8s; animation-delay: 0.2s; }
-.rain div:nth-child(9) { left: 90%; animation-duration: 1s; animation-delay: 0.4s; }
-.rain div:nth-child(10) { left: 95%; animation-duration: 0.9s; animation-delay: 0.3s; }
 
 /* Container principal */
 .weather-container {
